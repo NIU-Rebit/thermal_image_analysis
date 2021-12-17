@@ -1,7 +1,15 @@
 import numpy as np
 import cv2 
 
-cols, rows = (640, 480)
+cap = cv2.VideoCapture(2)
+while True:
+    if cap.isOpened():
+        ret, image = cap.read()
+        height, width, channels = image.shape   # 先取得影像尺寸
+        break
+        # print(height, width, channels)
+cols, rows = (width, height)
+
 # image = np.zeros((rows, cols, 3), dtype = "uint8")
 step = 20       # grid的密度
 thickness = 1 
@@ -9,13 +17,10 @@ v_xy = []
 h_xy = []
 x = np.linspace(start=0, stop=cols, num=step)
 y = np.linspace(start=0, stop=rows, num=step)
-
-cap = cv2.VideoCapture(0)
 cv2.namedWindow('grid', 0)
 
 while cap.isOpened():
     ret, image = cap.read()
-    image = cv2.resize(image, (640, 480))
 
     for i in range(step):
         v_xy.append( [int(x[i]), 0, int(x[i]), rows-1] )
@@ -29,6 +34,6 @@ while cap.isOpened():
     if cv2.waitKey(1) == ord('q'):
        break
 
+# cv2.waitKey(0)
 cv2.destroyAllWindows()
 cap.release()
-# cv2.waitKey(0)
