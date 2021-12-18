@@ -11,7 +11,7 @@ while True:
 cols, rows = (width*2, height*2)
 
 # image = np.zeros((rows, cols, 3), dtype = "uint8")
-step = 20       # grid的密度
+step = 50       # grid的密度
 thickness = 1 
 v_xy = []
 h_xy = []
@@ -21,7 +21,7 @@ cv2.namedWindow('grid', 0)
 
 while cap.isOpened():
     ret, image = cap.read()
-    image = cv2.resize(image, (width, height))
+    # image = cv2.resize(image, (width, height))
     for i in range(step):
         v_xy.append( [int(x[i]), 0, int(x[i]), rows-1] )
         h_xy.append( [0, int(y[i]), cols-1, int(y[i])] )
@@ -30,7 +30,7 @@ while cap.isOpened():
         cv2.line(image, (x1,y1), (x2, y2), (255,255,0), thickness)       # vertical
         cv2.line(image, (x1_,y1_), (x2_, y2_), (255,255,0), thickness)   # horizontal
         cv2.imshow('grid', image)
-        # cv2.waitKey(10) # 觀察grid掃蕩
+        # cv2.waitKey(5) # 觀察grid掃蕩
     if cv2.waitKey(1) == ord('q'):
        break
 

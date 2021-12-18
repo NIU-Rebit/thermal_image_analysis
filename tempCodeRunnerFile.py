@@ -1,1 +1,2 @@
-range(step):
+== ord('q'):
+    #    break
