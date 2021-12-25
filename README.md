@@ -7,6 +7,6 @@
 
 ## TODO:
 1. 測試網格方法中最佳step  (或靠algorithm)
-2. 取出格子中的local maximum，以及一個整體的globle maximum (或以array-like方式進行)
+2. 取出格子中的local maximum，以及一個整體的global maximum (或以array-like方式進行)
 3. 透過Algorithm將一張張圖片萃取出溫度資訊，成為曲線
 4. 設計detector來偵測疲勞駕駛 (二次曲線)
